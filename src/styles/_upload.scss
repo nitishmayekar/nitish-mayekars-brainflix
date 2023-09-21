@@ -1,0 +1,151 @@
+.upload {
+  margin: 24px 5% 0 5%;
+
+  &--title {
+    margin-bottom: 32px;
+    font-family: AvenirBold;
+  }
+
+  &__video {
+    margin-bottom: 32px;
+
+    &--label {
+      color: $silver;
+      font-family: AvenirRegular;
+    }
+
+    &--image {
+      width: 100%;
+      border-radius: 4px;
+      max-width: 344px;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      color: $silver;
+      font-family: AvenirRegular;
+      font-size: 12px;
+    }
+
+    &--title {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 24px;
+
+      &--input {
+        width: 100%;
+        height: 44px;
+        font-family: AvenirRegular;
+        font-size: 14px;
+        border-radius: 4px;
+        border: none;
+        border: 1px solid $mercury;
+        background-color: $alabaster;
+        padding-left: 10px;
+      }
+    }
+
+    &--description {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 32px;
+
+      &--input {
+        width: 100%;
+        height: 143px;
+        font-family: AvenirRegular;
+        font-size: 14px;
+        border-radius: 4px;
+        border: none;
+        border: 1px solid $mercury;
+        background-color: $alabaster;
+        padding: 10px 0 0 10px;
+      }
+    }
+
+    &--buttons {
+      display: flex;
+      flex-direction: column;
+
+      &--publish {
+        background-color: $brainflix-blue;
+        border: none;
+        border-radius: 4px;
+        color: $white;
+        height: 48px;
+        font-size: 16px;
+        margin-bottom: 24px;
+        align-items: center;
+        text-decoration: none;
+        justify-content: center;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      &--cancel {
+        background-color: $white;
+        border: none;
+        border-radius: 4px;
+        color: $brainflix-blue;
+        height: 48px;
+        font-size: 16px;
+        height: 16px;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+
+.upload__inputs--buttons--logo {
+  height: 20px;
+  position: absolute;
+  left: 0;
+  padding-left: 1rem;
+}
+
+.upload__inputs--buttons--publish:hover {
+  background-color: $brainflix-blue-dark;
+}
+
+.upload__inputs--buttons--cancel:hover {
+  color: $brainflix-blue-dark;
+}
+
+@include medium {
+  .upload {
+    margin: 48px 3.125% 0 3.125%;
+
+    &--title {
+      padding-bottom: 32px;
+      margin-bottom: 0;
+      border-bottom: 1px solid $mercury;
+    }
+
+    &__video {
+      margin: 40px 0;
+    }
+
+    &__inputs--description {
+      margin: 0;
+      padding-bottom: 40px;
+      border-bottom: 1px solid $mercury;
+    }
+
+    &__inputs--buttons {
+      margin-top: 40px;
+      flex-direction: row-reverse;
+
+      &--cancel {
+        margin: 15px 48px;
+      }
+
+      &--publish {
+        width: 160px;
+      }
+    }
+  }
+}

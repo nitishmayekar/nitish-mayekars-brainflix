@@ -1,0 +1,68 @@
+.video-info {
+    &__info {
+        &--title {
+            margin-bottom: 16px;
+            font-family: AvenirBold;
+        }
+
+        &--channel {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 32px;
+
+            &--name {
+                margin-right: 8px;
+            }
+
+            &--timestamp {
+                color: $silver;
+                font-family: AvenirRegular;
+            }
+        }
+
+        &--stats {
+            display: flex;
+            padding-bottom: 24px;
+            border-bottom: 1px solid $mercury;
+            font-family: AvenirRegular;
+
+            &--views {
+                display: flex;
+                // align-items: start;
+                margin-right: 16px;
+                justify-content: flex-start;
+            }
+
+            &--likes {
+                display: flex;
+                // align-items: start;
+                justify-content: flex-start;
+            }
+
+            &--icon {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &__description {
+        margin: 24px 0 40px 0;
+        font-size: 12px;
+        line-height: 20px;
+    }
+}
+
+@include medium {
+    .video-info {
+        &__info--channel--name {
+            font-size: 18px;
+            font-family: AvenirRegular;
+        }
+
+        &__description {
+            width: 70%;
+            font-size: .85rem;
+            margin: 40px 0 64px 0;
+        }
+    }
+}

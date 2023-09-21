@@ -1,0 +1,41 @@
+.next-videos {
+    &--header {
+        margin: 40px 0;
+        color: $silver;
+        font-size: 0.9rem;
+    }
+
+    &__video {
+
+        display: flex;
+        margin: 14px 0;
+        text-decoration: none;
+
+        &--image {
+            width: 120px;
+            height: 70px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        &__info {
+            width: 54.8%;
+
+            &--title {
+                margin: 4px 0 8px 0;
+                color: black;
+            }
+
+            &--channel {
+                font-weight: 400;
+                color: black;
+            }
+        }
+    }
+}
+
+@include huge {
+    .next-videos--header {
+        margin-top: 0;
+    }
+}

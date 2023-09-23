@@ -6,9 +6,16 @@ import logos from '../assets/Logo/logo.png';
 
 
 
-const Comments = () => {
-    
-
+const Comments = ({ current }) => {
+  console.log(current.comments);
+  const commentsSection =
+    current.comments &&
+    current.comments.map(function (comment) {
+      let time = new Date(comment.timestamp);
+      let date = `${
+        time.getMonth() + 1
+      }/${time.getDate()}/${time.getFullYear()}`;
+  
 
         return (
           <div className="comments__comment">
@@ -16,17 +23,17 @@ const Comments = () => {
             <div className="comments__comment__content">
               <div className="comments__comment__content__head">
                 <h5 className="comments__comment__content__head--name">
-                  
+                {comment.name}
                 </h5>
-                <h5 className="comments__comment__content__head--date"></h5>
+                <h5 className="comments__comment__content__head--date">{date}</h5>
               </div>
               <p className="comments__comment__content--comment">
-                
+              {comment.comment}
               </p>
             </div>
           </div>
         );
-      };
+      });
     return (
       <>
         <form className="comment-input">
@@ -65,8 +72,8 @@ const Comments = () => {
             </div>
           </div>
         </form>
-        <div className="comments"></div>
+        <div className="comments">{commentsSection}</div>
       </>
     );
-  ;
+    };
   export default Comments;

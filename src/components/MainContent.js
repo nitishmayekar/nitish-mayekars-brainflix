@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeroVideo from './HeroVideo';
 import VideoInfo from './VideoInfo';
 import Comments from './Comments';
 import NextVideos from './NextVideos';
+import { useParams } from 'react-router-dom';
 
 
+const MainContent = ({ videos, current, setVideoId }) => {
+    const { videoID } = useParams();
 
-const MainContent = ({ videos, current }) => {
+    useEffect(() => {
+        if(videoID) {
+            setVideoId(videoID);
+        }
+    }, [videoID])
+
     return (
         <main>
             <HeroVideo current={current} />

@@ -5,7 +5,8 @@ const NextVideos = ({ videos, current }) => {
   const renderNextVideo = () => {
     if (videos) {
       return videos.map(function (next) {
-        // console.log(next);
+        console.log('next: ', next);
+        console.log('current: ', current);
         return (
           <>
             {next.id !== current.id ? (

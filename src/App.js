@@ -1,25 +1,23 @@
 import React from 'react';
-import Header from './components/Header';
+import { Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Upload from './components/Upload';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-
-
-function App() {
-  
+const App = () => {
   const [videos, setVideos] = useState('');
   const [currentVideo, setCurrentVideo] = useState('');
   const { videoId } = useParams();
 
   useEffect(() => {
-    const url = 'https://project-2-api.herokuapp.com/videos?api_key=4e15e296-a8f6-4d61-bffb-cad423b094d8';
-
     axios
-      .get(url)
+      .get(
+        `https://project-2-api.herokuapp.com/videos?api_key=02e5b1dc-b49e-4905-bfb2-32635d7c4854`
+      )
       .then((response) => {
         console.log(response.data);
         setVideos(response.data);
@@ -29,15 +27,11 @@ function App() {
 
   useEffect(() => {
     if (videos.length > 0) {
-      let id = undefined;
-      if(videoId) {
-        id = videoId;
-      } else {
-        id = videos[0].id;
-      }
-      const url = `https://project-2-api.herokuapp.com/videos/${id}?api_key=4e15e296-a8f6-4d61-bffb-cad423b094d8`;
+      const id = videoId ? videoId : videos[0].id;
       axios
-        .get(url)
+        .get(
+          `https://project-2-api.herokuapp.com/videos/${id}?api_key=02e5b1dc-b49e-4905-bfb2-32635d7c4854`
+        )
         .then((response) => {
           console.log(response.data);
           setCurrentVideo(response.data);
@@ -45,23 +39,26 @@ function App() {
     }
   }, [videoId, videos]);
 
-
   return (
     <>
-     <Header />
-     <Routes>
+    <Router>
+      <Header />
+      <Routes>
         <Route
           path="/"
           element={<MainContent videos={videos} current={currentVideo} />}
         />
+
         <Route
           path="/video/:videoID"
           element={<MainContent videos={videos} current={currentVideo} />}
         />
+
         <Route path="/upload" element={<Upload />} />
       </Routes>
+      </Router>
     </>
   );
-}
+};
 
 export default App;

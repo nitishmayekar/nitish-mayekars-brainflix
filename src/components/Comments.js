@@ -7,7 +7,7 @@ import logos from '../assets/Logo/logo.png';
 
 
 const Comments = ({ current }) => {
-  console.log(current.comments);
+
   const commentsSection =
     current.comments &&
     current.comments.map(function (comment) {
